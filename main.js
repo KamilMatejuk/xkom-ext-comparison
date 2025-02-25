@@ -27,13 +27,13 @@ function findChild(parent, classes) {
 
 function resizeToColumns(columns) {
     const root = document.querySelector('#app > div:nth-child(2)');
-    root.style.maxWidth = '100vw';
+    root.style.maxWidth = columns ? '100vw' : '1156px';
 
     const headersContainer = findChild(root, headersContainerSelector);
-    headersContainer.style.display = 'grid';
-    headersContainer.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+    headersContainer.style.display = columns ? 'grid' : 'flex';
+    headersContainer.style.gridTemplateColumns = columns ? `repeat(${columns}, 1fr)` : undefined;
     for (const child of headersContainer.children) {
-        child.style.width = "100%";
+        child.style.width = columns ? '100%' : '25%';
     }
 
     const sections = [sectionContainerSelector1, sectionContainerSelector2, sectionContainerSelector3];
@@ -41,10 +41,10 @@ function resizeToColumns(columns) {
         const sectionElement = findChild(root, section);
         for (const row of sectionElement.children) {
             const rowContainer = row.children[1];
-            rowContainer.style.display = 'grid';
-            rowContainer.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+            rowContainer.style.display = columns ? 'grid' : 'flex';
+            rowContainer.style.gridTemplateColumns = columns ? `repeat(${columns}, 1fr)` : undefined;
             for (const cell of rowContainer.children) {
-                cell.style.width = '100%';
+                cell.style.width = columns ? '100%' : '25%';
             }
         }
     }
@@ -53,8 +53,18 @@ function resizeToColumns(columns) {
 
 // receive message from popup
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (!message.columns) return;
-    resizeToColumns(message.columns);
+    if (message.columns) {
+        resizeToColumns(message.columns);
+    }
+    if (message.onoff) {
+        if (message.onoff === "true") {
+            console.log('on')
+            resizeToColumns(5);
+        } else {
+            console.log('off')
+            resizeToColumns(undefined);
+        }
+    }
 });
 
 

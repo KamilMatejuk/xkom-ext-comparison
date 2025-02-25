@@ -2,41 +2,18 @@
 
     <head>
         <title>Porównanie produktów na x-kom.pl</title>
-        <style>
-            body {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                width: 300px;
-            }
-            img {
-                margin: auto;
-            }
-            h3 {
-                width: fit-content;
-                margin: auto;
-                margin-top: 20px;
-                margin-bottom: 20px;
-            }
-            .slider-values {
-                display: flex;
-                justify-content: space-between;
-                margin-top: 5px;
-                margin-left: 5px;
-                margin-right: 5px;
-                font-size: 16px;
-            }
-            .slider-values > p {
-                margin: 0;
-            }
-        </style>
+        <link rel="stylesheet" href="./popup.css">
     </head>
 
     <body>
+        <label class="switch">
+            <input id="onoffswitch" type="checkbox" checked>
+            <span class="switch-slider round"></span>
+        </label>
         <img src="./icons/128.png">
         <h3>Wybierz liczbe kolumn</h3>
         <input type="range" id="slider" min="4" max="10" step="1" value="5">
-        <div class="slider-values">
+        <div class="cols-slider">
             <p>4</p>
             <p>5</p>
             <p>6</p>
