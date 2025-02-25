@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
     "version": "0.0.0.1",
-    "name": "Porównanie produktów na x-kom.pl",
-    "description": "Zwiększ ilość porównywanych produktów na x-kom.pl",
+    "name": "Porównaj więcej produktów",
+    "description": "Zwiększ ilość porównywanych produktów na popularnych porównywarkach np: x-kom.pl",
     "permissions": ["activeTab", "scripting"],
     "host_permissions": ["https://www.x-kom.pl/porownanie/*"],
     "icons": {
