@@ -1,0 +1,51 @@
+<html>
+
+    <head>
+        <title>Porównanie produktów na x-kom.pl</title>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 300px;
+            }
+            img {
+                margin: auto;
+            }
+            h3 {
+                width: fit-content;
+                margin: auto;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            .slider-values {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 5px;
+                margin-left: 5px;
+                margin-right: 5px;
+                font-size: 16px;
+            }
+            .slider-values > p {
+                margin: 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <img src="./icons/128.png">
+        <h3>Wybierz liczbe kolumn</h3>
+        <input type="range" id="slider" min="3" max="8" step="1" value="5">
+        <div class="slider-values">
+            <p>3</p>
+            <p>4</p>
+            <p>5</p>
+            <p>6</p>
+            <p>7</p>
+            <p>8</p>
+        </div>
+
+        <script src="./popup.js"></script>
+    </body>
+
+</html>
